@@ -41,13 +41,11 @@ def send_email(subject, body, attachment_list):
     message['To'] = 'samarth.khandelwal39@gmail.com'
     message['Subject'] = subject
 
-    # Body of the email
     body = body
     message.attach(MIMEText(body, 'plain'))
 
     for attachment in attachment_list:
-        filename = 'app.py'
-        attachment = open(filename, 'rb')
+        filename = attachment.name + ".pdf"
 
         part = MIMEBase('application', 'octet-stream')
         part.set_payload((attachment).read())
@@ -84,7 +82,6 @@ def submit_enquiry():
 
 @app.route('/becomeOurDistributor', methods=['POST'])
 def submit_details():
-    # data = request.json
     formData = request.form
     name = formData.get('name')
     email = formData.get('email')
@@ -116,10 +113,7 @@ def submit_details():
         Service Calls : {service_calls}
         Business Address : {business_address}
         State : {state}
-        City : {city}
-        GST Details : {gst_details}
-        PAN Details : {pan_details}
-        Aadhaar Details : {aadhaar_details}"""
+        City : {city}"""
     
     send_email(subject="Book Demo", body=email_body, attachment_list=[gst_details, aadhaar_details, pan_details])
 
