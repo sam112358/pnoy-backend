@@ -7,11 +7,14 @@ from email import encoders
 import os
 import config
 from flask_cors import CORS
+import logging
 
 
 app = Flask(__name__)
 CORS(app)
 app.config.from_object('config')
+
+logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(levelname)s:%(message)s')
 
 # Use the configuration
 EMAIL_HOST = app.config['EMAIL_HOST']
@@ -63,6 +66,7 @@ def send_email(subject, body, attachment_list):
     server.send_message(message)
 
     server.quit()
+    logging.INFO("Mail sent successfully")
     print("Mail Sent Successfully")
 
 
@@ -115,7 +119,7 @@ def submit_details():
         State : {state}
         City : {city}"""
     
-    send_email(subject="Book Demo", body=email_body, attachment_list=[gst_details, aadhaar_details, pan_details])
+    send_email(subject="Become our distributor", body=email_body, attachment_list=[gst_details, aadhaar_details, pan_details])
 
     return "Email Sent", 200
 
@@ -135,6 +139,8 @@ def submit_request():
         Phone Number: {number}
         Service Needed: {service_needed}
         Location: {city}, {state}"""
+    
+    send_email(subject="Contact Us", body=email_body, attachment_list=[])
     
     return "Email Sent", 200
 
