@@ -4,3 +4,117 @@
 2023-12-19 15:47:41,544 INFO: * Restarting with stat
 2023-12-19 15:47:42,476 WARNING: * Debugger is active!
 2023-12-19 15:47:42,485 INFO: * Debugger PIN: 541-220-748
+2023-12-31 16:50:55,713 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-31 16:50:55,713 INFO:[33mPress CTRL+C to quit[0m
+2023-12-31 16:50:55,719 INFO: * Restarting with stat
+2023-12-31 16:50:56,993 WARNING: * Debugger is active!
+2023-12-31 16:50:56,997 INFO: * Debugger PIN: 523-488-355
+2023-12-31 16:51:15,888 INFO:127.0.0.1 - - [31/Dec/2023 16:51:15] "[35m[1mPOST /bookDemo HTTP/1.1[0m" 500 -
+2023-12-31 16:51:32,865 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-31 16:51:32,865 INFO:[33mPress CTRL+C to quit[0m
+2023-12-31 16:51:32,867 INFO: * Restarting with stat
+2023-12-31 16:51:33,676 WARNING: * Debugger is active!
+2023-12-31 16:51:33,682 INFO: * Debugger PIN: 523-488-355
+2023-12-31 16:51:40,026 INFO:127.0.0.1 - - [31/Dec/2023 16:51:40] "[35m[1mPOST /bookDemo HTTP/1.1[0m" 500 -
+2023-12-31 16:52:51,671 INFO: * Detected change in 'e:\\Projects\\pnoyDataAPI\\config.py', reloading
+2023-12-31 16:53:20,872 INFO: * Restarting with stat
+2023-12-31 17:17:11,244 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-31 17:17:11,244 INFO:[33mPress CTRL+C to quit[0m
+2023-12-31 17:17:11,246 INFO: * Restarting with stat
+2023-12-31 17:17:11,956 WARNING: * Debugger is active!
+2023-12-31 17:17:11,962 INFO: * Debugger PIN: 523-488-355
+2023-12-31 17:21:58,889 INFO:127.0.0.1 - - [31/Dec/2023 17:21:58] "[35m[1mPOST /bookDemo HTTP/1.1[0m" 500 -
+2023-12-31 17:23:32,350 INFO: * Detected change in 'e:\\Projects\\pnoyDataAPI\\app.py', reloading
+2023-12-31 17:23:35,377 INFO: * Restarting with stat
+2023-12-31 17:23:36,090 WARNING: * Debugger is active!
+2023-12-31 17:23:36,095 INFO: * Debugger PIN: 523-488-355
+2023-12-31 17:23:44,608 INFO: * Detected change in 'e:\\Projects\\pnoyDataAPI\\app.py', reloading
+2023-12-31 17:23:46,262 INFO: * Restarting with stat
+2023-12-31 17:23:57,945 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-31 17:23:57,945 INFO:[33mPress CTRL+C to quit[0m
+2023-12-31 17:23:57,948 INFO: * Restarting with stat
+2023-12-31 17:23:59,523 WARNING: * Debugger is active!
+2023-12-31 17:23:59,529 INFO: * Debugger PIN: 523-488-355
+2023-12-31 17:25:47,936 INFO: * Detected change in 'e:\\Projects\\pnoyDataAPI\\app.py', reloading
+2023-12-31 17:25:59,020 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-31 17:25:59,021 INFO:[33mPress CTRL+C to quit[0m
+2023-12-31 17:25:59,022 INFO: * Restarting with stat
+2023-12-31 17:25:59,732 WARNING: * Debugger is active!
+2023-12-31 17:25:59,737 INFO: * Debugger PIN: 523-488-355
+2023-12-31 17:26:09,951 INFO:Mail sent successfully
+2023-12-31 17:26:34,398 INFO:127.0.0.1 - - [31/Dec/2023 17:26:34] "POST /bookDemo HTTP/1.1" 200 -
+2024-01-12 02:34:13,635 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-12 02:34:13,646 INFO:[33mPress CTRL+C to quit[0m
+2024-01-12 02:34:13,653 INFO: * Restarting with stat
+2024-01-12 02:34:14,389 WARNING: * Debugger is active!
+2024-01-12 02:34:14,395 INFO: * Debugger PIN: 200-955-676
+2024-01-12 02:41:26,583 INFO: * Detected change in 'e:\\Projects\\pnoyDataAPI\\app.py', reloading
+2024-01-12 02:43:09,570 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-12 02:43:09,570 INFO:[33mPress CTRL+C to quit[0m
+2024-01-12 02:43:09,572 INFO: * Restarting with stat
+2024-01-12 02:43:10,299 WARNING: * Debugger is active!
+2024-01-12 02:43:10,305 INFO: * Debugger PIN: 200-955-676
+2024-01-12 02:43:30,334 INFO:127.0.0.1 - - [12/Jan/2024 02:43:30] "[35m[1mPOST /becomeOurDistributor HTTP/1.1[0m" 500 -
+2024-01-12 02:45:10,568 INFO: * Detected change in 'e:\\Projects\\pnoyDataAPI\\app.py', reloading
+2024-01-12 02:45:12,959 INFO:127.0.0.1 - - [12/Jan/2024 02:45:12] "[35m[1mPOST /becomeOurDistributor HTTP/1.1[0m" 500 -
+2024-01-12 02:45:13,569 INFO: * Restarting with stat
+2024-01-12 02:45:14,314 WARNING: * Debugger is active!
+2024-01-12 02:45:14,320 INFO: * Debugger PIN: 200-955-676
+2024-01-12 02:50:47,139 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-12 02:50:47,140 INFO:[33mPress CTRL+C to quit[0m
+2024-01-12 02:50:47,141 INFO: * Restarting with stat
+2024-01-12 02:50:47,884 WARNING: * Debugger is active!
+2024-01-12 02:50:47,890 INFO: * Debugger PIN: 200-955-676
+2024-01-12 02:51:16,282 INFO:127.0.0.1 - - [12/Jan/2024 02:51:16] "[35m[1mPOST /becomeOurDistributor HTTP/1.1[0m" 500 -
+2024-01-12 02:58:04,030 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-12 02:58:04,030 INFO:[33mPress CTRL+C to quit[0m
+2024-01-12 02:58:04,032 INFO: * Restarting with stat
+2024-01-12 02:58:04,745 WARNING: * Debugger is active!
+2024-01-12 02:58:04,751 INFO: * Debugger PIN: 200-955-676
+2024-01-12 02:58:12,101 INFO:127.0.0.1 - - [12/Jan/2024 02:58:12] "[35m[1mPOST /becomeOurDistributor HTTP/1.1[0m" 500 -
+2024-01-12 02:58:27,986 INFO: * Detected change in 'e:\\Projects\\pnoyDataAPI\\app.py', reloading
+2024-01-12 02:58:34,925 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-12 02:58:34,926 INFO:[33mPress CTRL+C to quit[0m
+2024-01-12 02:58:34,927 INFO: * Restarting with stat
+2024-01-12 02:58:35,639 WARNING: * Debugger is active!
+2024-01-12 02:58:35,646 INFO: * Debugger PIN: 200-955-676
+2024-01-12 02:59:13,847 INFO:127.0.0.1 - - [12/Jan/2024 02:59:13] "[35m[1mPOST /becomeOurDistributor HTTP/1.1[0m" 500 -
+2024-01-12 03:00:52,463 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-12 03:00:52,464 INFO:[33mPress CTRL+C to quit[0m
+2024-01-12 03:00:52,466 INFO: * Restarting with stat
+2024-01-12 03:00:53,193 WARNING: * Debugger is active!
+2024-01-12 03:00:53,199 INFO: * Debugger PIN: 200-955-676
+2024-01-12 03:01:17,440 INFO:Mail sent successfully
+2024-01-12 03:01:21,685 INFO:127.0.0.1 - - [12/Jan/2024 03:01:21] "POST /becomeOurDistributor HTTP/1.1" 200 -
+2024-01-12 03:03:21,604 INFO: * Detected change in 'e:\\Projects\\pnoyDataAPI\\app.py', reloading
+2024-01-12 03:05:33,837 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-12 03:05:33,838 INFO:[33mPress CTRL+C to quit[0m
+2024-01-12 03:05:33,840 INFO: * Restarting with stat
+2024-01-12 03:05:34,549 WARNING: * Debugger is active!
+2024-01-12 03:05:34,555 INFO: * Debugger PIN: 200-955-676
+2024-01-12 03:05:53,776 INFO:Mail sent successfully
+2024-01-12 03:05:53,779 INFO:127.0.0.1 - - [12/Jan/2024 03:05:53] "POST /becomeOurDistributor HTTP/1.1" 200 -
+2024-01-12 03:06:49,930 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-01-12 03:06:49,930 INFO:[33mPress CTRL+C to quit[0m
+2024-01-12 03:06:49,932 INFO: * Restarting with stat
+2024-01-12 03:06:50,634 WARNING: * Debugger is active!
+2024-01-12 03:06:50,640 INFO: * Debugger PIN: 200-955-676
+2024-01-12 03:07:01,632 INFO:Mail sent successfully
+2024-01-12 03:07:01,635 INFO:127.0.0.1 - - [12/Jan/2024 03:07:01] "POST /becomeOurDistributor HTTP/1.1" 200 -
+2024-01-12 03:07:31,279 INFO:Mail sent successfully
+2024-01-12 03:07:31,280 INFO:127.0.0.1 - - [12/Jan/2024 03:07:31] "POST /becomeOurDistributor HTTP/1.1" 200 -
+2024-01-12 03:15:10,903 INFO: * Detected change in 'e:\\Projects\\pnoyDataAPI\\app.py', reloading
+2024-01-12 03:15:14,012 INFO: * Restarting with stat

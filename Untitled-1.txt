@@ -1,0 +1,4 @@
+curl --location 'http://127.0.0.1:5000/bookDemo' \
+--header 'Content-Type: application/json' \
+--data-raw '{"name":"sam","email":"samarth.khandelwal39@gmail.com","number":"8375846003","enquiry":"asf"}'
+

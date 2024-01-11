@@ -8,10 +8,14 @@ import os
 import config
 from flask_cors import CORS
 import logging
+from fpdf import FPDF
+from io import BytesIO
+from werkzeug.datastructures import FileStorage
+
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "http://89.116.34.53:3000"}})
 app.config.from_object('config')
 
 logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(levelname)s:%(message)s')
@@ -48,7 +52,7 @@ def send_email(subject, body, attachment_list):
     message.attach(MIMEText(body, 'plain'))
 
     for attachment in attachment_list:
-        filename = attachment.name + ".pdf"
+        filename = attachment.name + '.' + attachment.filename.split('.')[1]
 
         part = MIMEBase('application', 'octet-stream')
         part.set_payload((attachment).read())
@@ -66,7 +70,7 @@ def send_email(subject, body, attachment_list):
     server.send_message(message)
 
     server.quit()
-    logging.INFO("Mail sent successfully")
+    logging.info("Mail sent successfully")
     print("Mail Sent Successfully")
 
 
@@ -99,27 +103,59 @@ def submit_details():
     business_address = formData.get('businessAddress')
     state = formData.get('state')
     city = formData.get('city')
+    pin_code = formData.get('pinCode')
 
     files = request.files
     gst_details = files.get('gstDetails')
     pan_details = files.get('panDetails')
     aadhaar_details = files.get('aadhaarDetails')
+    passport_photo = files.get('passportPhoto')
 
-    email_body = f"""
-        Name : {name}
-        Email : {email}
-        Number : {number}
-        Organization Name : {organization_name}
-        Current Business : {current_business}
-        RO Servicing Business : {ro_servicing_business}
-        Client Database : {client_database}
-        Service Executive : {service_executive}
-        Service Calls : {service_calls}
-        Business Address : {business_address}
-        State : {state}
-        City : {city}"""
-    
-    send_email(subject="Become our distributor", body=email_body, attachment_list=[gst_details, aadhaar_details, pan_details])
+    email_body_lines = [
+        ("Name", name),
+        ("Email", email),
+        ("Number", number),
+        ("Organization Name", organization_name),
+        ("Current Business", current_business),
+        ("RO Servicing Business", ro_servicing_business),
+        ("Client Database", client_database),
+        ("Service Executive", service_executive),
+        ("Service Calls", service_calls),
+        ("Business Address", business_address),
+        ("State", state),
+        ("City", city),
+        ("Pin Code", pin_code)
+    ]
+
+    # Generate and save PDF
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
+
+    for field_name, value in email_body_lines:
+        # Set font to bold for field name
+        pdf.set_font("Arial", 'B', 12)
+        pdf.cell(0, 10, f"{field_name.upper()}:", 0, 1)
+        
+        # Set font to regular for field value
+        pdf.set_font("Arial", size=12)
+        pdf.cell(0, 10, value, 0, 1)
+
+    pdf_filename = "Distributor_Details.pdf"
+    pdf.output(pdf_filename)
+
+    with open(pdf_filename, "rb") as file:
+        pdf_file = FileStorage(stream=file, filename=pdf_filename)
+        pdf_file.name = "distributorDetails"
+
+        # Update the attachment_list
+        attachment_list = [gst_details, aadhaar_details, pan_details, passport_photo, pdf_file]
+
+        # Send the email
+        send_email(subject=f"Become our distributor : {organization_name}", body=f"PFA the details of the distributor {organization_name}'s application : ", attachment_list=attachment_list)
+
+    # Delete the PDF file after sending the email
+    os.remove(pdf_filename)
 
     return "Email Sent", 200
 
