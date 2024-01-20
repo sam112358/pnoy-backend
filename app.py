@@ -15,7 +15,7 @@ from werkzeug.datastructures import FileStorage
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://89.116.34.53:3000"}})
+CORS(app)
 app.config.from_object('config')
 
 logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s %(levelname)s:%(message)s')
@@ -141,7 +141,7 @@ def submit_details():
         pdf.set_font("Arial", size=12)
         pdf.cell(0, 10, value, 0, 1)
 
-    pdf_filename = "Distributor_Details.pdf"
+    pdf_filename = f"Distributor_Details_{name}.pdf"
     pdf.output(pdf_filename)
 
     with open(pdf_filename, "rb") as file:
