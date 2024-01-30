@@ -11,7 +11,7 @@ import logging
 from fpdf import FPDF
 from io import BytesIO
 from werkzeug.datastructures import FileStorage
-
+import ssl
 
 
 app = Flask(__name__)
@@ -74,7 +74,7 @@ def send_email(subject, body, attachment_list):
     print("Mail Sent Successfully")
 
 
-@app.route('/bookDemo', methods=['POST'])
+@app.route('/api/bookDemo', methods=['POST'])
 def submit_enquiry():
     data = request.json
     name = data.get('name')
@@ -82,13 +82,46 @@ def submit_enquiry():
     number = data.get('number')
     enquiry = data.get('enquiry')
 
-    email_body = f'Name : {name}\nEmail : {email}\nNumber : {number}\nEnquiry : {enquiry}'
+    # Setup PDF
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
 
-    send_email(subject="Book Demo", body=email_body, attachment_list=[])
-    
+    # Email body lines for PDF
+    email_body_lines = [
+        ("Name", name),
+        ("Email", email),
+        ("Number", number),
+        ("Enquiry", enquiry)
+    ]
+
+    for field_name, value in email_body_lines:
+        pdf.set_font("Arial", 'B', 12)  # Bold font for field name
+        pdf.cell(0, 10, f"{field_name}:", 0, 1)
+        pdf.set_font("Arial", size=12)  # Regular font for value
+        pdf.cell(0, 10, value, 0, 1)
+
+    # Generate and save PDF
+    pdf_filename = f"Enquiry_{name}.pdf"
+    pdf.output(pdf_filename)
+
+    # Attach PDF to email
+    with open(pdf_filename, "rb") as file:
+        pdf_file = FileStorage(stream=file, filename=pdf_filename)
+        pdf_file.name = "enquiryDetails"
+
+        # Attach the PDF file
+        attachment_list = [pdf_file]
+
+        # Send the email
+        send_email(subject="Book Demo", body="Please find the attached enquiry details.", attachment_list=attachment_list)
+
+    # Delete the PDF file after sending the email
+    os.remove(pdf_filename)
+
     return "Email Sent", 200
 
-@app.route('/becomeOurDistributor', methods=['POST'])
+@app.route('/api/becomeOurDistributor', methods=['POST'])
 def submit_details():
     formData = request.form
     name = formData.get('name')
@@ -159,7 +192,7 @@ def submit_details():
 
     return "Email Sent", 200
 
-@app.route('/contactUs', methods=['POST'])
+@app.route('/api/contactUs', methods=['POST'])
 def submit_request():
     data = request.json
     name = data.get('name')
@@ -169,16 +202,55 @@ def submit_request():
     state = data.get('state')
     city = data.get('city')
 
-    email_body = f"""
-        Name: {name}
-        Email: {email}
-        Phone Number: {number}
-        Service Needed: {service_needed}
-        Location: {city}, {state}"""
+    # Generate and save PDF
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
+
+    # Email body lines for PDF
+    email_body_lines = [
+        ("Name", name),
+        ("Email", email),
+        ("Phone Number", number),
+        ("Service Needed", service_needed),
+        ("Location", f"{city}, {state}")
+    ]
+
+    for field_name, value in email_body_lines:
+        pdf.set_font("Arial", 'B', 12)  # Bold font for field name
+        pdf.cell(0, 10, f"{field_name}:", 0, 1)
+        pdf.set_font("Arial", size=12)  # Regular font for value
+        pdf.cell(0, 10, value, 0, 1)
+
+    # Generate and save PDF
+    pdf_filename = f"Service_Request_{name}.pdf"
+    pdf.output(pdf_filename)
     
-    send_email(subject="Contact Us", body=email_body, attachment_list=[])
-    
+    # Attach PDF to email
+    with open(pdf_filename, "rb") as file:
+        pdf_file = FileStorage(stream=file, filename=pdf_filename)
+        pdf_file.name = "serviceRequest"
+
+        # Attach the PDF file
+        attachment_list = [pdf_file]
+
+        # Send the email
+        send_email(subject="Contact Us", body="Please find the attached service request details.", attachment_list=attachment_list)
+
+    # Delete the PDF file after sending the email
+    os.remove(pdf_filename)
+
     return "Email Sent", 200
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True, ssl_context=('/etc/letsencrypt/live/pnoy.in/fullchain.pem', '/etc/letsencrypt/live/pnoy.in/privkey.pem'))
+
+
+# if __name__ == '__main__':
+#     if os.getenv('FLASK_SSL', False):
+#         # Set SSL context if FLASK_SSL environment variable is set
+#         context = ssl.SSLContext(ssl.PROTOCOL_TLS)
+#         context.load_cert_chain('/etc/letsencrypt/live/pnoy.in/fullchain.pem', '/etc/letsencrypt/live/pnoy.in/privkey.pem')
+#         app.run(host='0.0.0.0', port=443, ssl_context=context, debug=True)
+#     else:
+#         app.run(host='0.0.0.0', port=5000, debug=True)
