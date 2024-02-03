@@ -45,7 +45,7 @@ def create_file(content):
 def send_email(subject, body, attachment_list):
     message = MIMEMultipart()
     message['From'] = EMAIL_HOST_USER
-    message['To'] = 'samarth.khandelwal39@gmail.com'
+    message['To'] = EMAIL_RECEIVER
     message['Subject'] = subject
 
     body = body
